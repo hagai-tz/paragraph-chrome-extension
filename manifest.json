@@ -12,7 +12,8 @@
   "default_locale": "en",
   "background": {
     "scripts": [
-      "src/bg/background.js"
+      "src/bg/background.js",
+      "options/options.js"
     ],
     "persistent": true
   },
@@ -20,7 +21,9 @@
     "default_icon": "icons/icon16.png",
     "default_title": "<paragraph>"
   },
+  "options_page": "options/options.html",
   "permissions": [
-    "tabs"
+    "tabs",
+    "storage"
   ]
 }
