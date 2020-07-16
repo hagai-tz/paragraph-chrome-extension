@@ -11,9 +11,10 @@ chrome.browserAction.onClicked.addListener(function (tab) {
     let userDefTarLang = result.key;
 
     if (userDefTarLang === undefined) {
+      userDefTarLang = window.navigator.languages[1].slice(0,2).toLocaleUpperCase()
       chrome.tabs.create({
-        // url: `http://localhost:3000/url?url=${tab.url}&lang=DE`,
-        url: `https://www.paragraph.live/url?url=${tab.url}&lang=DE`,
+        // url: `http://localhost:3000/url?url=${tab.url}&lang=${userDefTarLang}`,
+        url: `https://www.paragraph.live/url?url=${tab.url}&lang=${userDefTarLang}`,
       })
     } else {
       chrome.tabs.create({
