@@ -12,13 +12,13 @@ chrome.browserAction.onClicked.addListener(function (tab) {
 
     if (userDefTarLang === undefined) {
       chrome.tabs.create({
-        url: `http://localhost:3000/url?url=${tab.url}&lang=DE`,
-        // url: `https://www.paragraph.live/url?url=${tab.url}&lang=DE`,
+        // url: `http://localhost:3000/url?url=${tab.url}&lang=DE`,
+        url: `https://www.paragraph.live/url?url=${tab.url}&lang=DE`,
       })
     } else {
       chrome.tabs.create({
-        url: `http://localhost:3000/url?url=${tab.url}&lang=${userDefTarLang}`,
-        // url: `https://www.paragraph.live/url?url=${tab.url}&lang=${userDefTarLang}`,
+        // url: `http://localhost:3000/url?url=${tab.url}&lang=${userDefTarLang}`,
+        url: `https://www.paragraph.live/url?url=${tab.url}&lang=${userDefTarLang}`,
       })
     }
   })
