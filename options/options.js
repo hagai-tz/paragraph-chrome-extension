@@ -1,11 +1,8 @@
-
 /* toggle between hiding and showing the dropdown content */
-
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('btnClick').addEventListener('click', myFunction);
 }
 )
-
 
 function myFunction() {
     console.log("myFunction1")
