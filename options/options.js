@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 )
 
-chrome.storage.sync.get(['tarLang', 'tarLangName', 'tarLangImg'], function (result) {
+chrome.storage.sync.get(['tarLang', 'tarLangName', 'tarLangImg'], function (result) { // this section is making sure there will be a default language in the option page.
     if (result.tarLang === undefined) {
         let x = result.tarLang
         console.log("result.tarLang", x)
@@ -39,7 +39,7 @@ function openTar() {
 
 window.onclick = function (event) {
     if (event.target.dataset.lang === 'tar-lang') {
-        switch (event.target.dataset.id) {
+        switch (event.target.dataset.id) { //click handler for the target language
             case 'HI':
                 chrome.storage.sync.set({
                     tarLang: event.target.dataset.id,
