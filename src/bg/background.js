@@ -10,15 +10,25 @@ _gaq.push(['_setAccount', 'UA-159876106-1']);
 
 chrome.browserAction.onClicked.addListener(function (tab) {
   console.log('this is tabs', tab);
-  _gaq.push(['_trackEvent', 'exClick', 'click']);
+  _gaq.push(['_trackEvent', 'exClick', 'click', tab.url]);
+  
+  // chrome.storage.sync.clear()
+  chrome.storage.sync.get(['srcLang', 'tarLang'], function (result) {
+    
+    let userDefSrcLang = result.srcLang;
+    let userDefTarLang = result.tarLang;
+    console.log('userDefSrcLang', userDefSrcLang);
+    console.log('userDefTarLang', userDefTarLang);
 
-
-  chrome.storage.sync.get(['key'], function (result) {
-    console.log('Value currently is2 ' + result.key)
-    let userDefTarLang = result.key;
-    userDefTarLang === undefined
-      ? null
-      : _gaq.push(['_trackEvent', 'userLangEx', userDefTarLang]); //sends the user default target lang
+    if (userDefSrcLang === undefined) {
+      if (typeof document.documentElement.lang === 'undefined') {
+        userDefSrcLang = document.documentElement.lang.toLocaleUpperCase()
+        _gaq.push(['_trackEvent', 'userLangEx', userDefSrcLang]); //sends the user default target lang
+      } else {
+        userDefSrcLang = document.documentElement.lang.toLocaleUpperCase()
+        _gaq.push(['_trackEvent', 'userLangEx', userDefSrcLang]); //sends the user default target lang
+      }
+    }
 
     if (userDefTarLang === undefined) {
       if (typeof window.navigator.languages[1] === 'undefined') {
@@ -28,18 +38,35 @@ chrome.browserAction.onClicked.addListener(function (tab) {
         userDefTarLang = window.navigator.languages[1].slice(0, 2).toLocaleUpperCase()
         _gaq.push(['_trackEvent', 'userLangEx', userDefTarLang]); //sends the user default target lang
       }
-
-      chrome.tabs.create({
-        // url: `http://localhost:3000/url?url=${tab.url}&lang=${userDefTarLang}`,
-        url: `https://www.paragraph.live/url?url=${tab.url}&lang=${userDefTarLang}`,
-      })
     }
 
-    else {
-      chrome.tabs.create({
-        // url: `http://localhost:3000/url?url=${tab.url}&lang=${userDefTarLang}`,
-        url: `https://www.paragraph.live/url?url=${tab.url}&lang=${userDefTarLang}`,
-      })
-    }
+
+    chrome.tabs.create({
+      url: `http://localhost:3000/url?url=${tab.url}&srcLang=${userDefSrcLang}&tarLang=${userDefTarLang}`,
+      // url: `https://www.paragraph.live/url?url=${tab.url}&srcLang=${userDefSrcLang}&tarLang=${userDefTarLang}`,
+    })
   })
 })
+
+// if (userDefTarLang === undefined) {
+//   if (typeof window.navigator.languages[1] === 'undefined') {
+//     userDefTarLang = window.navigator.languages[0].slice(0, 2).toLocaleUpperCase()
+//     _gaq.push(['_trackEvent', 'userLangEx', userDefTarLang]); //sends the user default target lang
+//   } else {
+//     userDefTarLang = window.navigator.languages[1].slice(0, 2).toLocaleUpperCase()
+//     _gaq.push(['_trackEvent', 'userLangEx', userDefTarLang]); //sends the user default target lang
+//   }
+
+
+//   chrome.tabs.create({
+//     url: `http://localhost:3000/url?url=${tab.url}&srcLang=${userDefSrcLang}&tarLang=${userDefTarLang}`
+//     // url: `https://www.paragraph.live/url?url=${tab.url}&srcLang=${userDefSrcLang}&tarLang=${userDefTarLang}`,
+//   })
+// }
+
+// else {
+//   chrome.tabs.create({
+//     url: `http://localhost:3000/url?url=${tab.url}&srcLang=${userDefSrcLang}&tarLang=${userDefTarLang}`,
+//     // url: `https://www.paragraph.live/url?url=${tab.url}&srcLang=${userDefSrcLang}&tarLang=${userDefTarLang}`,
+//   })
+// }

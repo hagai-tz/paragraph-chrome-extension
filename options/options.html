@@ -3,79 +3,219 @@
 
 <head>
   <style>
-    /* The container <div> - needed to position the dropdown content */
+    #logo {
+      grid-row: 1;
+      grid-column: 1;
+      width: 50px;
+      height: 50px;
+      justify-self: center;
+      align-self: top;
+      z-index: 100;
+      max-width: 100%;
+    }
+
+    .settings {
+      position: absolute;
+      height: 55px;
+      left: 30px;
+      top: 50px;
+
+      font-family: Source Serif Pro;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 40px;
+      line-height: 55px;
+      /* identical to box height */
+      color: #000000;
+    }
+
+    .src-lang {
+      position: absolute;
+      height: 19px;
+      left: 55px;
+      top: 165px;
+
+      font-family: Source Sans Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 19px;
+      /* identical to box height */
+      color: #000000;
+    }
+
+    .target-lang {
+      position: absolute;
+      height: 19px;
+      left: 55px;
+      top: 235px;
+
+      font-family: Source Sans Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 19px;
+      /* identical to box height */
+      color: #000000;
+    }
+
+    #target-lang {
+      top: 70px;
+    }
+
+    .flags {
+      width: 15px;
+    }
+
+
     .dropdown {
       position: relative;
-      display: inline-block;
     }
 
-    /* Dropdown Button */
-    .dropbtn {
-      background-color: #3498DB;
-      color: white;
-      padding: 16px;
-      font-size: 16px;
-      border: none;
+    .dropdown.open span {
+      background-color: #EDEDED;
+    }
+
+    .dropdown.open ul {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .dropdown>span {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
       cursor: pointer;
-    }
-
-    /* Dropdown button on hover & focus */
-    .dropbtn:hover,
-    .dropbtn:focus {
-      background-color: #2980B9;
-    }
-
-    /* Dropdown Content (Hidden by Default) */
-    .dropdown-content {
-      display: none;
+      border-radius: 4px;
+      width: fit-content;
       position: absolute;
-      background-color: #f1f1f1;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-      z-index: 1;
+      top: 95px;
+      left: 200px;
     }
 
-    /* Links inside the dropdown */
-    .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
+    .dropdown>span span {
+      margin: 0 10px;
     }
 
-    /* Change color of dropdown links on hover */
-    .dropdown-content a:hover {
-      background-color: #ddd
+    .dropdown ul {
+      padding: 0;
+      margin: 0;
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      list-style: none;
+      top: 140px;
+      left: 200px;
+      width: 114.42px;
+      border: 1px solid #EDEDED;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+      border-radius: 3px;
+      background-color: #fff;
+      z-index: 999;
     }
 
-    /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-    .show {
-      display: block;
+    .dropdown ul li {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      font-style: 15px;
+      color: #000;
     }
-    #confirm-lang {
-      color: #2980B9;
-      display: block;
 
+    .dropdown ul li+li {
+      border-top: 1px solid #EDEDED;
+    }
+
+    .dropdown ul li img {
+      margin-right: 10px;
+    }
+
+    .dropdown ul li:hover {
+      background-color: #EDEDED;
     }
   </style>
 </head>
 
 <body>
-  <h2>Default Target Translation Language</h2>
-  <p>Hi! 
-    Please select your preferred target language from the dropdown list.</p>
-  
-  <div class="dropdown">
-    <button class="dropbtn" id="btnClick">Pick a Language</button>
-    <div id="myDropdown" class="dropdown-content">
-      <a href="#">HE</a>
-      <a href="#">ES</a>
-      <a href="#">DE</a>
-      <a href="#">AR</a>
-      <a href="#">ML</a>
-      <a href="#">PL</a>
+  <img src="../icons/Trial Logo Design1.png" alt="" id="logo">
+  <h1 class="settings">Settings:</h1>
+
+  <div>
+    <div class="src-lang">Source language: </div>
+    <div class='dropdown' id='dropdown-src' >
+      
+      <span id='select-src-lang'>
+        <img src='./flags/EN.svg' alt='' class='flags' />
+        <span>English</span>
+        <img src='./flags/arrow.png' alt='' class='arrow' />
+      </span>
+      <ul>
+        <li data-id='ES' data-lang='src-lang' data-img='./flags/ES.svg' data-langname='Spanish'>
+          <img src='./flags/ES.svg' alt='' class='flags' />
+          Spanish
+        </li>
+        <li data-id='HE' data-lang='src-lang' data-img='./flags/HE.svg' data-langname='Hebrew'>
+          <img src='./flags/HE.svg' alt='' class='flags' />
+          Hebrew
+        </li>
+        <li data-id='AR' data-lang='src-lang' data-img='./flags/AR.svg' data-langname='Arabic'>
+          <img src='./flags/AR.svg' alt='' class='flags' />
+          Arabic
+        </li>
+        <li data-id='RU' data-lang='src-lang' data-img='./flags/RU.svg' data-langname='Russian'>
+          <img src='./flags/RU.svg' alt='' class='flags' />
+          Russian
+        </li>
+        <li data-id='FR' data-lang='src-lang' data-img='./flags/FR.svg' data-langname='French'>
+          <img src='./flags/FR.svg' alt='' class='flags' />
+          French
+        </li>
+      </ul>
+
     </div>
   </div>
+
+  <div>
+    <div class="target-lang">Target language: </div>
+    <div class='dropdown' id="target-lang">
+
+      <span id='select-tar-lang'>
+        <img src='./flags/EN.svg' alt='' class='flags' />
+        <span>English</span>
+        <img src='./flags/arrow.png' alt='' class='arrow' />
+
+      </span>
+        <ul>
+          <li data-id='ES' data-lang='tar-lang' data-img='./flags/ES.svg' data-langname='Spanish'>
+            <img src='./flags/ES.svg' alt='' class='flags' />
+            Spanish
+          </li>
+          <li data-id='HE' data-lang='tar-lang' data-img='./flags/HE.svg' data-langname='Hebrew'>
+            <img src='./flags/HE.svg' alt='' class='flags' />
+            Hebrew
+          </li>
+          <li data-id='AR' data-lang='tar-lang' data-img='./flags/AR.svg' data-langname='Arabic'>
+            <img src='./flags/AR.svg' alt='' class='flags' />
+            Arabic
+          </li>
+          <li data-id='RU' data-lang='tar-lang' data-img='./flags/RU.svg' data-langname='Russian'>
+            <img src='./flags/RU.svg' alt='' class='flags' />
+            Russian
+          </li>
+          <li data-id='FR' data-lang='tar-lang' data-img='./flags/FR.svg' data-langname='French'>
+            <img src='./flags/FR.svg' alt='' class='flags' />
+            French
+          </li>
+        </ul>
+  
+      </ul>
+
+    </div>
+  </div>
+
 </body>
 <script src="options.js"></script>
 
