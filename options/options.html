@@ -29,26 +29,11 @@
       color: #000000;
     }
 
-    .src-lang {
-      position: absolute;
-      height: 19px;
-      left: 55px;
-      top: 165px;
-
-      font-family: Source Sans Pro;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 20px;
-      line-height: 19px;
-      /* identical to box height */
-      color: #000000;
-    }
-
     .target-lang {
       position: absolute;
       height: 19px;
       left: 55px;
-      top: 235px;
+      top: 170px;
 
       font-family: Source Sans Pro;
       font-style: normal;
@@ -91,7 +76,7 @@
       border-radius: 4px;
       width: fit-content;
       position: absolute;
-      top: 95px;
+      top: 31px;
       left: 200px;
     }
 
@@ -106,9 +91,9 @@
       visibility: hidden;
       position: absolute;
       list-style: none;
-      top: 140px;
+      top: 74px;
       left: 200px;
-      width: 114.42px;
+      width: 160.42px;
       border: 1px solid #EDEDED;
       box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
       border-radius: 3px;
@@ -144,73 +129,61 @@
   <h1 class="settings">Settings:</h1>
 
   <div>
-    <div class="src-lang">Source language: </div>
-    <div class='dropdown' id='dropdown-src' >
-      
-      <span id='select-src-lang'>
-        <img src='./flags/EN.svg' alt='' class='flags' />
-        <span>English</span>
-        <img src='./flags/arrow.png' alt='' class='arrow' />
-      </span>
-      <ul>
-        <li data-id='ES' data-lang='src-lang' data-img='./flags/ES.svg' data-langname='Spanish'>
-          <img src='./flags/ES.svg' alt='' class='flags' />
-          Spanish
-        </li>
-        <li data-id='HE' data-lang='src-lang' data-img='./flags/HE.svg' data-langname='Hebrew'>
-          <img src='./flags/HE.svg' alt='' class='flags' />
-          Hebrew
-        </li>
-        <li data-id='AR' data-lang='src-lang' data-img='./flags/AR.svg' data-langname='Arabic'>
-          <img src='./flags/AR.svg' alt='' class='flags' />
-          Arabic
-        </li>
-        <li data-id='RU' data-lang='src-lang' data-img='./flags/RU.svg' data-langname='Russian'>
-          <img src='./flags/RU.svg' alt='' class='flags' />
-          Russian
-        </li>
-        <li data-id='FR' data-lang='src-lang' data-img='./flags/FR.svg' data-langname='French'>
-          <img src='./flags/FR.svg' alt='' class='flags' />
-          French
-        </li>
-      </ul>
-
-    </div>
-  </div>
-
-  <div>
     <div class="target-lang">Target language: </div>
     <div class='dropdown' id="target-lang">
 
-      <span id='select-tar-lang'>
-        <img src='./flags/EN.svg' alt='' class='flags' />
-        <span>English</span>
-        <img src='./flags/arrow.png' alt='' class='arrow' />
+      <span id='select-tar-lang'></span>
+      <ul>
+        <li data-id='HE' data-lang='tar-lang' data-img='./flags/HE.svg' data-langname='Hebrew'>
+          <img src='./flags/HE.svg' alt='' class='flags' />
+          Hebrew
+        </li>
+        <li data-id='EN' data-lang='tar-lang' data-img='./flags/EN.svg' data-langname='English'>
+          <img src='./flags/EN.svg' alt='' class='flags' />
+          English
+        </li>
+        <li data-id='DE' data-lang='tar-lang' data-img='./flags/DE.svg' data-langname='Deutsch'>
+          <img src='./flags/DE.svg' alt='' class='flags' />
+          Deutsch
+        </li>
+        <li data-id='ES' data-lang='tar-lang' data-img='./flags/ES.svg' data-langname='Spanish'>
+          <img src='./flags/ES.svg' alt='' class='flags' />
+          Spanish
+        </li>
+        <li data-id='AR' data-lang='tar-lang' data-img='./flags/AR.svg' data-langname='Arabic'>
+          <img src='./flags/AR.svg' alt='' class='flags' />
+          Arabic
+        </li>
+        <li data-id='RU' data-lang='tar-lang' data-img='./flags/RU.svg' data-langname='Russian'>
+          <img src='./flags/RU.svg' alt='' class='flags' />
+          Russian
+        </li>
+        <li data-id='FR' data-lang='tar-lang' data-img='./flags/FR.svg' data-langname='French'>
+          <img src='./flags/FR.svg' alt='' class='flags' />
+          French
+        </li>
+        <li data-id='JA' data-lang='tar-lang' data-img='./flags/JA.svg' data-langname='Japanese'>
+          <img src='./flags/JA.svg' alt='' class='flags' />
+          Japanese
+        </li>
+        <li data-id='ZH-CN' data-lang='tar-lang' data-img='./flags/ZH-CN.svg' data-langname='Chinese (simplified)'>
+          <img src='./flags/ZH-CN.svg' alt='' class='flags' />
+          Chinese (simplified)
+        </li>
+        <li data-id='ZH-TW' data-lang='tar-lang' data-img='./flags/ZH-TW.svg' data-langname='Chinese (traditional)'>
+          <img src='./flags/ZH-TW.svg' alt='' class='flags' />
+          Chinese (traditional)
+        </li>
+        <li data-id='HI' data-lang='tar-lang' data-img='./flags/HI.svg' data-langname='Hindi'>
+          <img src='./flags/HI.svg' alt='' class='flags' />
+          Hindi
+        </li>
+        <li data-id='PL' data-lang='tar-lang' data-img='./flags/PL.svg' data-langname='Polish'>
+          <img src='./flags/PL.svg' alt='' class='flags' />
+          Polish
+        </li>
+      </ul>
 
-      </span>
-        <ul>
-          <li data-id='ES' data-lang='tar-lang' data-img='./flags/ES.svg' data-langname='Spanish'>
-            <img src='./flags/ES.svg' alt='' class='flags' />
-            Spanish
-          </li>
-          <li data-id='HE' data-lang='tar-lang' data-img='./flags/HE.svg' data-langname='Hebrew'>
-            <img src='./flags/HE.svg' alt='' class='flags' />
-            Hebrew
-          </li>
-          <li data-id='AR' data-lang='tar-lang' data-img='./flags/AR.svg' data-langname='Arabic'>
-            <img src='./flags/AR.svg' alt='' class='flags' />
-            Arabic
-          </li>
-          <li data-id='RU' data-lang='tar-lang' data-img='./flags/RU.svg' data-langname='Russian'>
-            <img src='./flags/RU.svg' alt='' class='flags' />
-            Russian
-          </li>
-          <li data-id='FR' data-lang='tar-lang' data-img='./flags/FR.svg' data-langname='French'>
-            <img src='./flags/FR.svg' alt='' class='flags' />
-            French
-          </li>
-        </ul>
-  
       </ul>
 
     </div>
