@@ -30,7 +30,7 @@ chrome.browserAction.onClicked.addListener(function (tab) {
 
     chrome.tabs.create({
       // url: `http://localhost:3000/url?url=${tab.url}&tarLang=${userDefTarLang}`,
-      url: `https://www.paragraph.live/url?url=${tab.url}tarLang=${userDefTarLang}`,
+      url: `https://www.paragraph.live/url?url=${tab.url}&tarLang=${userDefTarLang}`,
     })
   })
 })
