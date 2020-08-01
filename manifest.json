@@ -1,8 +1,8 @@
 {
-  "name": "<paragraph>",
-  "version": "2.0.4",
+  "name": "Paragraph: Read, Learn Improve",
+  "version": "2.0.5",
   "manifest_version": 2,
-  "description": "Paragraph is a web application that helps users learn English while reading the daily news.",
+  "description": "Paragraph is a web application that helps users learn Second language while reading the daily news.",
   "homepage_url": "https://www.paragraph.live",
   "icons": {
     "16": "icons/icon16.png",
